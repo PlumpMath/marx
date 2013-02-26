@@ -9,7 +9,7 @@ describe 'Parser' do
 
   describe 'Comrade' do
     describe 'declaring one' do
-      let(:input) { 'Comrade Dmitri has ability 5' }
+      let(:input) { 'comrade Dmitri has ability 5' }
       before { @output = @parser.parse(input).transform }
 
       its(:name) { should == 'Dmitri' }
@@ -19,7 +19,7 @@ describe 'Parser' do
 
   describe 'Union' do
     describe 'with one Comrade' do
-      let(:input) { 'Union Trade has Comrade Dmitri' }
+      let(:input) { 'union Trade has comrade Dmitri' }
       let(:dmitri) { FactoryGirl.create(:union, comrades: ['Dmitri']) }
       before { @output = @parser.parse(input).transform }
 
@@ -27,7 +27,7 @@ describe 'Parser' do
     end
 
     context 'with multiple Comrades' do
-      let(:input) { 'Union Trade has Comrades Alexei, Grigori' }
+      let(:input) { 'union Trade has comrades Alexei, Grigori' }
       let(:union) do
         FactoryGirl.create(:union, comrades: ['Alexei', 'Grigori'])
       end
@@ -38,7 +38,7 @@ describe 'Parser' do
     end
 
     context 'including unions' do
-      let(:input) { 'Union Trade includes Fishing Union, Meat Union' }
+      let(:input) { 'union Trade includes Fishing union, Meat union' }
       let(:fishing) { FactoryGirl.create(:union, comrades: ['Alexei', 'Grigori']) }
       let(:meat) { FactoryGirl.create(:union, comrades: ['Dmitri', 'Grigori']) }
 
@@ -48,7 +48,7 @@ describe 'Parser' do
     end
 
     context 'full declaration' do
-      let(:input) { 'Union Trade has Comrade Dmitri; includes Meat Union; }
+      let(:input) { 'union Trade has comrade Dmitri; includes Meat union;' }
       let(:meat) { FactoryGirl.create(:union, comrades: ['Alexei', 'Grigori']) }
       before { @output = @parser.parse(input).transform }
 
