@@ -1,8 +1,10 @@
 marx
 ====
 
+A satirical programming language
+
 #Introduction
-Marx is a satirical programming language based on the writings of Karl Marx.
+Marx is based on the writings of Karl Marx.
 The USSRuntime is an implementation of marx, based on the regimes of Vladimir Lenin and Joseph Stalin.
 
 In addition to their theme, marx and the USSRuntime have the following features:
