@@ -23,21 +23,23 @@ Marx is a language open to interpretation and lacking in necessary details.  It 
 
 A marxist language must support the following datatypes:
 
-###Comrades
+###Comrade types
 
 1. Boolean
 1. Integral number
 1. Floating-point number
 1. String
-1. Union (array)
-
-###Duties
-1. Duty (function)
 
 Comrades are ranked in order of *specificity*.  A higher number signifies greater specificity.
 
+###Union types
+
+* Union (list of comrades)
+* Duty (function on each comrade in union)
+* Committee (function on union(s))
+
 ##Values
-Values are decleared with *comrade*, *union*, and *duty* declarations.
+Values are decleared with *comrade*, *union*, *duty* and *committee* declarations.
 
 ```
     comrade Kazimir has ability true
@@ -62,7 +64,7 @@ Values are decleared with *comrade*, *union*, and *duty* declarations.
     <five-year-plan>        ::= <comment>* 
                                 for the next five years<newline>
                                 <plan><plan><plan><plan><plan>
-                                for the people!<newline>
+                                for the good of the people!<newline>
                                 <comment>*
     <plan>                  ::= (<duty-declaration> | <comment>)*
                                 in year <five-year-digit><newline> 
@@ -74,6 +76,7 @@ Values are decleared with *comrade*, *union*, and *duty* declarations.
                                 | <unite>
                                 | <comment-soft>
                                 | <year-task><newline><year-task>
+                                | <committee-declaration>
     <comment>               ::= <comment-soft><newline>
     <comment-soft>          ::= account <character>*
     <comrade-declaration>   ::= comrade <name> has ability (<string-value> 
@@ -86,6 +89,9 @@ Values are decleared with *comrade*, *union*, and *duty* declarations.
                                 from each according to<newline>
                                     (<expression-list> | <comment>)*
                                 to each according to his needs<newline>
+    <committee-declaration> ::= commmittee <name> mobilizes <union-reference-list> by<newline>
+                                    (<expression-list> | <comment>)*
+                                for the good of the party!
     <unite>                 ::= workers of <union-reference-list> unite for <duty-reference>!
     <expression-list>       ::= <expression> | <expression-list><expression>
     <expression>            ::= <name><newline> | <name> [*/+\-] <name><newline>
@@ -108,4 +114,4 @@ Values are decleared with *comrade*, *union*, and *duty* declarations.
     <miniscule-letter>      ::= [a-z]
     <whitespace>            ::= [\t ]+
     <newline>               ::= [\n]
-    <asterisk>              ::= \*
+    
