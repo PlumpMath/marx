@@ -47,7 +47,7 @@ Values are decleared with *Comrade*, *Union*, and *Duty* statements.
 
     Union Trade has Comrades Alexei, Dmitri
     Union Food has Comrade Kazimir
-    Fishing Union has Comrade Dmitri; includes Trade Union, Food Union; performs Fishing Duty
+    Union Fishing has Comrade Dmitri; includes Trade Union, Food Union; performs Fishing Duty
 
     Duty Fishing requires many Comrades and
     From each according to
