@@ -54,17 +54,17 @@ Values are decleared with *Comrade*, *Union*, and *Duty* statements.
     To each according to his needs
 ```
 
-##BNF
-Basic Grammar:
+##Grammar
 
 ```
-    <program>               ::= <five-year-plan>+
+    <program>               ::= <duty-declaration>*<five-year-plan>+
     <five-year-plan>        ::= <comment>* 
                                 For the next five years<newline>
                                 <plan><plan><plan><plan><plan>
                                 For the people!<newline>
                                 <comment>*
-    <plan>                  ::= <comment>* In year <five-year-digit><newline> 
+    <plan>                  ::= (<duty-declaration> | <comment>)*
+                                In year <five-year-digit><newline> 
                                 <year-tasks>+<newline>
                                 For Production!<newline>
     <year-tasks>            ::= <comrade-declaration> 
@@ -86,7 +86,7 @@ Basic Grammar:
     <duty-declaration>      ::= <duty-reference> requires <comrade-count> Comrades and<newline>
                                 From each according to<newline>
                                     (<expression-list> | <comment>)*
-                                To each according to his needs
+                                To each according to his needs<newline>
     <unite>                 ::= Workers of <union-reference> unite!
     <expression-list>       ::= <expression> | <expression-list><expression>
     <expression>            ::= <name><newline> | <name> [*/+\-] <name><newline>
