@@ -48,7 +48,7 @@ describe 'Parser' do
     end
 
     context 'full declaration' do
-      let(:input) { 'union Trade has comrade Dmitri; includes Meat union;' }
+      let(:input) { 'union Trade has comrade Dmitri; includes Meat union' }
       let(:meat) { FactoryGirl.create(:union, comrades: ['Alexei', 'Grigori']) }
       before { @output = @parser.parse(input).transform }
 
