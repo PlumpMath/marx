@@ -47,21 +47,13 @@ describe 'Parser' do
       its(:comrades) { should match_array(fishing.comrades | meat.comrades) }
     end
 
-    context 'performing duty' do
-      let(:input) { 'Union Trade has Comrade Dmitri; performs Fishing Duty' }
-      before { @output = @parser.parse(input).transform }
-
-      @output.duty.name.should == 'Fishing'
-    end
-
     context 'full declaration' do
-      let(:input) { 'Union Trade has Comrade Dmitri; includes Meat Union; performs Fishing Duty' }
+      let(:input) { 'Union Trade has Comrade Dmitri; includes Meat Union; }
       let(:meat) { FactoryGirl.create(:union, comrades: ['Alexei', 'Grigori']) }
       before { @output = @parser.parse(input).transform }
 
       its(:name) { should == 'Trade' }
       its(:comrades) { should match_array(meat.comrades | ['Dmitri']) }
-      @output.duty.name.should == 'Fishing'
     end
   end
 end
