@@ -37,22 +37,22 @@ A marxist language must support the following datatypes:
 Comrades are ranked in order of *specificity*.  A higher number signifies greater specificity.
 
 ##Values
-Values are decleared with *Comrade*, *Union*, and *Duty* statements.
+Values are decleared with *comrade*, *union*, and *duty* declarations.
 
 ```
-    Comrade Kazimir has ability true
-    Comrade Alexei has ability 5
-    Comrade Dmitri has ability 7.8
-    Comrade Grigori has ability "Moscow"
+    comrade Kazimir has ability true
+    comrade Alexei has ability 5
+    comrade Dmitri has ability 7.8
+    comrade Grigori has ability "Moscow"
 
-    Union Trade has Comrades Alexei, Dmitri
-    Union Food has Comrade Kazimir
-    Union Fishing has Comrade Dmitri; includes Trade Union, Food Union; performs Fishing Duty
+    union Trade has comrades Alexei, Dmitri
+    union Food has comrade Kazimir
+    union Fishing has comrade Dmitri; includes Trade union, Food union
 
-    Duty Fishing requires many Comrades and
-    From each according to
+    duty Fishing requires many comrades and
+    from each according to
         ability * rank
-    To each according to his needs
+    to each according to his needs
 ```
 
 ##Grammar
@@ -60,14 +60,14 @@ Values are decleared with *Comrade*, *Union*, and *Duty* statements.
 ```
     <program>               ::= <duty-declaration>*<five-year-plan>+
     <five-year-plan>        ::= <comment>* 
-                                For the next five years<newline>
+                                for the next five years<newline>
                                 <plan><plan><plan><plan><plan>
-                                For the people!<newline>
+                                for the people!<newline>
                                 <comment>*
     <plan>                  ::= (<duty-declaration> | <comment>)*
-                                In year <five-year-digit><newline> 
+                                in year <five-year-digit><newline> 
                                 <year-tasks>+<newline>
-                                For Production!<newline>
+                                for production!<newline>
     <year-tasks>            ::= <comrade-declaration> 
                                 | <union-declaration>
                                 | <duty-declaration>
@@ -75,29 +75,26 @@ Values are decleared with *Comrade*, *Union*, and *Duty* statements.
                                 | <comment-soft>
                                 | <year-task><newline><year-task>
     <comment>               ::= <comment-soft><newline>
-    <comment-soft>          ::= Account <character>*
-    <comrade-declaration>   ::= Comrade <name> has ability (<string-value> 
+    <comment-soft>          ::= account <character>*
+    <comrade-declaration>   ::= comrade <name> has ability (<string-value> 
                                                             | <floating-value> 
                                                             | <integral-value> 
                                                             | <boolean-value>)
-    <union-declaration>     ::= <union-reference>(<has-comrades>; <includes-unions>; <performs-duty>
-                                                | <has-comrades>; <performs-duty>
+    <union-declaration>     ::= <union-reference>(<has-comrades> | <includes-unions>
                                                 | <has-comrades>; <includes-unions>
-                                                | <includes-unions>; <performs-duty>)
-    <duty-declaration>      ::= <duty-reference> requires <comrade-count> Comrades and<newline>
-                                From each according to<newline>
+    <duty-declaration>      ::= <duty-reference> requires <comrade-count> comrades and<newline>
+                                from each according to<newline>
                                     (<expression-list> | <comment>)*
-                                To each according to his needs<newline>
-    <unite>                 ::= Workers of <union-reference> unite!
+                                to each according to his needs<newline>
+    <unite>                 ::= workers of <union-reference-list> unite for <duty-reference>!
     <expression-list>       ::= <expression> | <expression-list><expression>
     <expression>            ::= <name><newline> | <name> [*/+\-] <name><newline>
     <comrade-count>         ::= many | <integral-value>
-    <has-comrades>          ::= has Comrade <name> | has Comrades <name-list>
+    <has-comrades>          ::= has comrade <name> | has comrades <name-list>
     <includes-unions>       ::= includes <union-list>
-    <performs-duty>         ::= performs <duty-reference>
     <union-reference-list>  ::= <union-reference> | <union-reference-list>, <union-reference>
-    <duty-reference>        ::= <name> Duty
-    <union-reference>       ::= <name> Union
+    <duty-reference>        ::= <name> duty
+    <union-reference>       ::= <name> union
     <string-value>          ::= "<character>*"
     <floating-value>        ::= <integral-value>.<integral-value>
     <integral-value>        ::= <digit>+
