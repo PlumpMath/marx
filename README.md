@@ -46,7 +46,8 @@ Values are decleared with *Comrade*, *Union*, and *Duty* statements.
     Comrade Grigori has ability "Moscow"
 
     Union Trade has Comrades Alexei, Dmitri
-    Union Fishing has Comrade Dmitri; includes Union Trade; performs Duty Fishing
+    Union Food has Comrade Kazimir
+    Fishing Union has Comrade Dmitri; includes Trade Union, Food Union; performs Fishing Duty
 
     Duty Fishing requires many Comrades and
     From each according to
@@ -92,10 +93,11 @@ Values are decleared with *Comrade*, *Union*, and *Duty* statements.
     <expression>            ::= <name><newline> | <name> [*/+\-] <name><newline>
     <comrade-count>         ::= many | <integral-value>
     <has-comrades>          ::= has Comrade <name> | has Comrades <name-list>
-    <includes-unions>       ::= includes Union <name> | includes Unions <name-list>
+    <includes-unions>       ::= includes <union-list>
     <performs-duty>         ::= performs <duty-reference>
-    <duty-reference>        ::= Duty <name>
-    <union-reference>       ::= Union <name>
+    <union-reference-list>  ::= <union-reference> | <union-reference-list>, <union-reference>
+    <duty-reference>        ::= <name> Duty
+    <union-reference>       ::= <name> Union
     <string-value>          ::= "<character>*"
     <floating-value>        ::= <integral-value>.<integral-value>
     <integral-value>        ::= <digit>+
