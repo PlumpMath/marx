@@ -20,7 +20,7 @@ describe 'Parser' do
   describe 'Union' do
     describe 'with one Comrade' do
       let(:input) { 'union Trade has comrade Dmitri' }
-      let(:dmitri) { FactoryGirl.create(:union, comrades: ['Dmitri']) }
+      let(:dmitri) { } # mock(:union, comrades: ['Dmitri']) }
       before { @output = @parser.parse(input).transform }
 
       its(:comrades) { should == :dmitri }
@@ -29,7 +29,7 @@ describe 'Parser' do
     context 'with multiple Comrades' do
       let(:input) { 'union Trade has comrades Alexei, Grigori' }
       let(:union) do
-        FactoryGirl.create(:union, comrades: ['Alexei', 'Grigori'])
+        #mock (:union, comrades: ['Alexei', 'Grigori'])
       end
       before { @output = @parser.parse(input).transform }
 
@@ -39,8 +39,8 @@ describe 'Parser' do
 
     context 'including unions' do
       let(:input) { 'union Trade includes Fishing union, Meat union' }
-      let(:fishing) { FactoryGirl.create(:union, comrades: ['Alexei', 'Grigori']) }
-      let(:meat) { FactoryGirl.create(:union, comrades: ['Dmitri', 'Grigori']) }
+      let(:fishing) {} #mock (:union, comrades: ['Alexei', 'Grigori']) }
+      let(:meat) { } #mock (:union, comrades: ['Dmitri', 'Grigori']) }
 
       before { @output = @parser.parse(input).transform }
 
@@ -49,7 +49,7 @@ describe 'Parser' do
 
     context 'full declaration' do
       let(:input) { 'union Trade has comrade Dmitri; includes Meat union' }
-      let(:meat) { FactoryGirl.create(:union, comrades: ['Alexei', 'Grigori']) }
+      let(:meat) {} #mock (:union, comrades: ['Alexei', 'Grigori']) }
       before { @output = @parser.parse(input).transform }
 
       its(:name) { should == 'Trade' }
