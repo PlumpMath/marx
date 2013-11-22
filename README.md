@@ -64,7 +64,7 @@ Marx is a general-purpose language intended for light computations and inconsenq
 Marx is a functional language and strictly prohibits any other paradigms. Marx programmers are well aware that the Von Neumann architecture is "opium of the people." Any attempt to write imperative logic in Marx is a violation of the Terms of Service and may result in destructive behaviors by the runtime.
 
 
-*WARNING: Be sure to keep full backups of your system before running Marx programs. Marx VM's are not responsible for any loss of data, which you will likely incur.*
+*WARNING: Be sure to keep full backups of your system before running Marx programs. Marx VM's are not responsible for any loss of data, which you will almost certainly incur.*
 
 ##Grammar
 
