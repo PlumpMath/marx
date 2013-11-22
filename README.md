@@ -14,6 +14,10 @@ In addition to their theme, marx and the USSRuntime have the following features:
 * A fickle nature
 * Functions that should be pure but aren't
 * Plan-based programming
+* Inconsistent exception handling
+* No input streams
+* Stderr is generally blocked, but may be used spuriously by the runtime
+
 
 #Marx -- The Revolution
 
@@ -54,6 +58,13 @@ Values are decleared with *Comrade*, *Union*, and *Duty* statements.
         ability * rank
     To each according to his needs
 ```
+##Usage Notes
+Marx is a general-purpose language intended for light computations and inconsenquential processing. If the runtime detects that the program is too sophisticated it will suspend that program for indeterminate amounts of time. It may also force the program to perform unrelated CPU-intensive operations until the program dies.
+
+Marx is a functional language and strictly prohibits any other paradigms. Marx programmers are well aware that the Von Neumann architecture is "opium of the people." Any attempt to write imperative logic in Marx is a violation of the Terms of Service and may result in destructive behaviors by the runtime.
+
+
+*WARNING: Be sure to keep full backups of your system before running Marx programs. Marx VM's are not responsible for any loss of data, which you will almost certainly incur.*
 
 ##Grammar
 
